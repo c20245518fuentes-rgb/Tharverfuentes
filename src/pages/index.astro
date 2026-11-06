@@ -1,9 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const name = "Tharver Fuentes";
-const position = "AI Engineer";
+import Hero from "../sections/Hero.astro";
+import About from "../sections/About.astro";
+import Projects from "../sections/Projects.astro";
+import Services from "../sections/Services.astro";
+import Contact from "../sections/Contact.astro";
+import Approach from "../sections/Approach.astro";
 ---
 
 <BaseLayout>
-	<h1 class="text-red-700">{name} | {position}</h1>
+  <Hero />
+  <About />
+  <Projects />
+  <div class="my-8 grid grid-cols-1 gap-8 py-4">
+    <Services />
+    <Contact />
+  </div>
+  <Approach />
 </BaseLayout>

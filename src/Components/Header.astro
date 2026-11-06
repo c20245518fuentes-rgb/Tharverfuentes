@@ -1,0 +1,66 @@
+<header class="site-header sticky top-0 z-30 px-4 pt-3 sm:px-8">
+  <nav
+    aria-label="Main navigation"
+    class="mx-auto flex max-w-7xl flex-col items-start gap-3 rounded-[2rem] border border-white/75 bg-ivory/95 px-5 py-3 text-[#8C3540] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.9),7px_8px_18px_rgba(140,53,64,0.15)] backdrop-blur-xl dark:border-[#A64B56] dark:bg-[#8C3540]/95 dark:text-ivory sm:flex-row sm:items-center"
+  >
+    <a href="#home" class="flex shrink-0 items-center gap-3 text-lg font-black tracking-wide text-[#8C3540] dark:text-ivory">
+      <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#E9B949] text-sm text-[#8C3540] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.6),3px_4px_8px_rgba(92,35,43,0.18)]" aria-hidden="true">T</span>
+      @Tharver
+    </a>
+    <ul class="flex w-full flex-wrap gap-x-2 gap-y-1 text-sm font-semibold sm:ml-auto sm:w-auto sm:flex-nowrap sm:gap-x-3 lg:gap-x-6">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#approach" class="nav-link">Approach</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="flex w-full gap-2 sm:w-auto">
+      <button
+        id="toggle-dark"
+        type="button"
+        aria-label="Toggle light and dark mode"
+        aria-pressed="false"
+        class="btn-soft gap-2 border-[#CBA45A]/60 px-4 py-2.5"
+      >
+        <svg class="h-5 w-5 shrink-0 text-[#A77B19] dark:text-[#E9B949]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+        </svg>
+        <span>Theme</span>
+      </button>
+      <button id="replay-intro" type="button" class="btn-soft gap-2 px-4 py-2.5" aria-label="Replay page intro">
+        <svg id="replay-intro-icon" class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 2.64-6.36L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span>Replay intro</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const themeToggle = document.querySelector<HTMLButtonElement>("#toggle-dark");
+  const replayButton = document.querySelector<HTMLButtonElement>("#replay-intro");
+
+  themeToggle?.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+  });
+
+  replayButton?.addEventListener("click", () => {
+    const body = document.body;
+    body.classList.remove("intro-replay");
+    void body.offsetWidth;
+    body.classList.add("intro-replay");
+
+    const icon = document.querySelector<SVGElement>("#replay-intro-icon");
+    icon?.animate(
+      [{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }],
+      { duration: 600, easing: "ease-in-out" },
+    );
+
+    window.setTimeout(() => body.classList.remove("intro-replay"), 900);
+  });
+</script>

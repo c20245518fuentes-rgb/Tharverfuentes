@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+import Footer from "../Components/Footer.astro";
+import Header from "../Components/Header.astro";
+
+
 const name = "Tharver Fuentes";
 const position = "AI Engineer";
 ---
@@ -9,11 +13,17 @@ const position = "AI Engineer";
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#f5f2ee" />
+		<meta name="description" content="Tharver Fuentes designs and builds websites, business systems, and AI workflows." />
 		<title>{name} | {position}</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<main class="mx-auto max-w-7xl px-4 sm:px-8">
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
