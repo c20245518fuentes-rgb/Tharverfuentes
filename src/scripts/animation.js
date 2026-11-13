@@ -44,13 +44,6 @@ gsap.fromTo(
   },
 );
 
-ScrollTrigger.create({
-  trigger: "#services",
-  start: "top 80%",
-  end: "top 30%",
-  pin: true,
-});
-
       // 1. Tween
       // gsap.from("#hero-name", { y: -100, opacity: 0, duration: 1, ease: "bounce.out" });
       // gsap.from("#hero-name", { x: -150, opacity: 0, duration: 1, ease: "power2.out" });
