@@ -23,7 +23,7 @@
         aria-pressed="false"
         class="btn-soft gap-2 border-[#CBA45A]/60 px-4 py-2.5"
       >
-        <svg class="h-5 w-5 shrink-0 text-[#A77B19] dark:text-[#E9B949]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg id="theme-toggle-control" class="h-5 w-5 shrink-0 text-[#A77B19] dark:text-[#E9B949]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
         </svg>
@@ -39,28 +39,3 @@
     </div>
   </nav>
 </header>
-
-<script>
-  const themeToggle = document.querySelector<HTMLButtonElement>("#toggle-dark");
-  const replayButton = document.querySelector<HTMLButtonElement>("#replay-intro");
-
-  themeToggle?.addEventListener("click", () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    themeToggle.setAttribute("aria-pressed", String(isDark));
-  });
-
-  replayButton?.addEventListener("click", () => {
-    const body = document.body;
-    body.classList.remove("intro-replay");
-    void body.offsetWidth;
-    body.classList.add("intro-replay");
-
-    const icon = document.querySelector<SVGElement>("#replay-intro-icon");
-    icon?.animate(
-      [{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }],
-      { duration: 600, easing: "ease-in-out" },
-    );
-
-    window.setTimeout(() => body.classList.remove("intro-replay"), 900);
-  });
-</script>

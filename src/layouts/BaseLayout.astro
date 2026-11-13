@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Footer from "../Components/Footer.astro";
 import Header from "../Components/Header.astro";
 
-
 const name = "Tharver Fuentes";
 const position = "AI Engineer";
 ---
@@ -20,10 +19,12 @@ const position = "AI Engineer";
 		<title>{name} | {position}</title>
 	</head>
 	<body>
+		<div id="progressBar" aria-hidden="true"></div>
 		<Header />
 		<main class="mx-auto max-w-7xl px-4 sm:px-8">
 			<slot />
 		</main>
 		<Footer />
+		<script src="../scripts/animation.js"></script>
 	</body>
 </html>
